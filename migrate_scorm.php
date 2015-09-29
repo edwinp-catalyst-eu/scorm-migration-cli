@@ -85,6 +85,26 @@ foreach ($scormcontent->children() as $scormdetails) {
         xlog("Configuring SCORM module '{$scormname}'");
         scorm_parse($scorm, true);
         scorm_grade_item_update($scorm);
+
+        // Specific settings for the SCORM package
+        $scormsettings = new stdClass();
+        $scormsettings->id = $scormid;
+        $scormsettings->introformat = 0;
+        $scormsettings->maxgrade = 100;
+        $scormsettings->grademethod = 1;
+        $scormsettings->whatgrade = 0;
+        $scormsettings->maxattempt = 0;
+        $scormsettings->forcecompleted = 1;
+        $scormsettings->forcenewattempt = 0;
+        $scormsettings->lastattemptlock = 0;
+        $scormsettings->displayattemptstatus = 0;
+        $scormsettings->displaycoursestructure = 0;
+        $scormsettings->updatefreq = 0;
+        $scormsettings->skipview = 2;
+        $scormsettings->hidebrowse = 1;
+        $scormsettings->hidetoc = 3;
+        $DB->update_record('scorm', $scormsettings);
+
         xlog("SCORM module '{$scormname}' configured successfully");
     } else {
 
