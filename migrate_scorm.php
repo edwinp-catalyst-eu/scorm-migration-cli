@@ -95,7 +95,7 @@ foreach ($scormcontent->children() as $scormdetails) {
         $scormsettings->whatgrade = 0;
         $scormsettings->maxattempt = 0;
         $scormsettings->forcecompleted = 1;
-        $scormsettings->forcenewattempt = 0;
+        $scormsettings->forcenewattempt = 1;
         $scormsettings->lastattemptlock = 0;
         $scormsettings->displayattemptstatus = 0;
         $scormsettings->displaycoursestructure = 0;
